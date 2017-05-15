@@ -5,10 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptDecryptHelper", "Enc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientA", "ClientA\ClientA.csproj", "{5B3F1806-6827-42BF-8F58-8E25E3C8F9D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientB", "ClientB\ClientB.csproj", "{B2CDA668-73C8-4066-9DDA-F73CF1AE4711}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApplicationA", "MvcApplicationA\MvcApplicationA.csproj", "{EF7A0AE1-AD8E-4135-9B29-EA3FE3F1239F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +19,6 @@ Global
 		{5B3F1806-6827-42BF-8F58-8E25E3C8F9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B3F1806-6827-42BF-8F58-8E25E3C8F9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B3F1806-6827-42BF-8F58-8E25E3C8F9D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2CDA668-73C8-4066-9DDA-F73CF1AE4711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2CDA668-73C8-4066-9DDA-F73CF1AE4711}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2CDA668-73C8-4066-9DDA-F73CF1AE4711}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2CDA668-73C8-4066-9DDA-F73CF1AE4711}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF7A0AE1-AD8E-4135-9B29-EA3FE3F1239F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF7A0AE1-AD8E-4135-9B29-EA3FE3F1239F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF7A0AE1-AD8E-4135-9B29-EA3FE3F1239F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF7A0AE1-AD8E-4135-9B29-EA3FE3F1239F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

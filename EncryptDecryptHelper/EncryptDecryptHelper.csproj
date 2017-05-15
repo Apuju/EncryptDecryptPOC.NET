@@ -40,12 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AESCryptography.cs" />
-    <Compile Include="Base32Encoding.cs" />
-    <Compile Include="Base64Encoding.cs" />
-    <Compile Include="ByteSerializer.cs" />
-    <Compile Include="EncryptHelper.cs" />
+    <Compile Include="Bussiness\AESCryptography.cs" />
+    <Compile Include="Bussiness\BinaryEncoder.cs" />
+    <Compile Include="Service\BinaryEncodeHelper.cs" />
+    <Compile Include="SharedTypes\Algorithm.cs" />
+    <Compile Include="Service\DecryptHelper.cs" />
+    <Compile Include="Service\EncryptHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Bussiness\RandomWrapper.cs" />
+    <Compile Include="Bussiness\HashWrapper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
