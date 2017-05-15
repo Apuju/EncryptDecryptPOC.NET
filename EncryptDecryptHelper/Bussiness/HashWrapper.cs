@@ -9,6 +9,24 @@ namespace EncryptDecryptHelper.Bussiness
 {
     public class HashWrapper
     {
+        public byte[] HashMD5(byte[] data)
+        {
+            byte[] hashText = null;
+            try
+            {
+                using (MD5 hasher = MD5.Create())
+                {
+                    hashText = hasher.ComputeHash(data);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return hashText;
+        }
+
         public byte[] HashSHA256(byte[] data)
         {
             byte[] hashText = null;
