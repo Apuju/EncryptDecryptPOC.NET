@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
 using EncryptDecryptHelper.Bussiness;
 using EncryptDecryptHelper.SharedTypes;
 
@@ -34,7 +33,7 @@ namespace EncryptDecryptHelper.Service
             string encryptText = string.Empty;
             if (!string.IsNullOrEmpty(data))
             {
-                byte[] ciperText = null;
+                byte[] cipherText = null;
                 try
                 {
                     BinaryEncodeHelper encodeHelper = new BinaryEncodeHelper(Algorithm.StringTransformationFormat.UTF8);
@@ -58,16 +57,24 @@ namespace EncryptDecryptHelper.Service
                         case Algorithm.Cryptography.AES:
                             {
                                 AESCryptography aes = new AESCryptography();
-                                ciperText = aes.EncryptData(dataBinary);
+                                cipherText = aes.EncryptData(dataBinary);
                                 m_Password = encodeHelper.Encode(aes.Password);
                                 m_Salt = encodeHelper.Encode(aes.Salt);
                                 break;
                             }
+                        case Algorithm.Cryptography.RSA:
+                            {
+                                RSACryptography rsa = new RSACryptography();
+                                cipherText = rsa.EncryptData(dataBinary);
+                                BinaryEncodeHelper encodeLittleHelper = new BinaryEncodeHelper(Algorithm.StringTransformationFormat.UTF8);
+                                m_Password = encodeHelper.Encode(encodeLittleHelper.Decode(rsa.PublicKey));
+                                break;
+                            }
                     }
 
-                    if (ciperText != null)
+                    if (cipherText != null)
                     {
-                        encryptText = encodeHelper.Encode(ciperText);
+                        encryptText = encodeHelper.Encode(cipherText);
                     }
                 }
                 catch (Exception)
@@ -76,6 +83,19 @@ namespace EncryptDecryptHelper.Service
                 }
             }
             return encryptText;
+        }
+
+        public void ClearRSAKeyContainer()
+        {
+            try
+            {
+                RSACryptography rsa = new RSACryptography();
+                rsa.ClearKeyContainer();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

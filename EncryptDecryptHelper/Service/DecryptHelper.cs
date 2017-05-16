@@ -13,7 +13,7 @@ namespace EncryptDecryptHelper.Service
         private string m_Password = string.Empty;
         private string m_Salt = string.Empty;
 
-        public DecryptHelper(string password, string salt)
+        public DecryptHelper(string password = null, string salt = null)
         {
             m_Password = password;
             m_Salt = salt;
@@ -44,13 +44,36 @@ namespace EncryptDecryptHelper.Service
                             }
                     }
                     cipherText = encodeHelper.Decode(encryptText);
-                    password = encodeHelper.Decode(m_Password);
-                    salt = encodeHelper.Decode(m_Salt);
-
-                    if (cipherText != null && password != null && salt != null)
+                    if (!string.IsNullOrEmpty(m_Password))
                     {
-                        AESCryptography aes = new AESCryptography(password, salt);
-                        byte[] text = aes.DecryptData(cipherText);
+                        password = encodeHelper.Decode(m_Password);
+                    }
+                    if (!string.IsNullOrEmpty(m_Salt))
+                    {
+                        salt = encodeHelper.Decode(m_Salt);
+                    }
+
+                    byte[] text = null;
+                    switch (cryptographyAlgorithm)
+                    {
+                        case Algorithm.Cryptography.AES:
+                            {
+                                if (cipherText != null && password != null && salt != null)
+                                {
+                                    AESCryptography aes = new AESCryptography(password, salt);
+                                    text = aes.DecryptData(cipherText);
+                                }
+                                break;
+                            }
+                        case Algorithm.Cryptography.RSA:
+                            {
+                                RSACryptography rsa = new RSACryptography();
+                                text = rsa.DecryptData(cipherText);
+                                break;
+                            }
+                    }
+                    if (text != null)
+                    {
                         encodeHelper.SetEncodeFormat(outputStringEncode);
                         data = encodeHelper.Encode(text);
                     }

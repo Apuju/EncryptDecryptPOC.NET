@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Bussiness\AESCryptography.cs" />
     <Compile Include="Bussiness\BinaryEncoder.cs" />
+    <Compile Include="Bussiness\RSACryptography.cs" />
     <Compile Include="Service\BinaryEncodeHelper.cs" />
     <Compile Include="SharedTypes\Algorithm.cs" />
     <Compile Include="Service\DecryptHelper.cs" />

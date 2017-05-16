@@ -10,7 +10,8 @@ namespace EncryptDecryptHelper.SharedTypes
     {
         public enum Cryptography
         {
-            AES
+            AES,
+            RSA
         }
 
         public enum StringTransformationFormat

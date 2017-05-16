@@ -27,7 +27,15 @@ namespace ClientA
                 DecryptHelper decryptor = new DecryptHelper(encryptor.Password, encryptor.Salt);
                 string originalInput = decryptor.DecryptData(encryptString, Algorithm.StringEncodeFormat.Base64, Algorithm.Cryptography.AES, Algorithm.StringTransformationFormat.UTF8);
                 Console.WriteLine(string.Format("Decrypted String: {0}", originalInput));
-                
+
+                encryptString = encryptor.EncryptData(input, Algorithm.StringTransformationFormat.UTF8, Algorithm.Cryptography.RSA, Algorithm.StringEncodeFormat.Base64);
+                Console.WriteLine(string.Format("Encrypted String: {0}", encryptString));
+                Console.WriteLine(string.Format("Encrypted Password is {0}", encryptor.Password));
+                originalInput = decryptor.DecryptData(encryptString, Algorithm.StringEncodeFormat.Base64, Algorithm.Cryptography.RSA, Algorithm.StringTransformationFormat.UTF8);
+                Console.WriteLine(string.Format("Decrypted String: {0}", originalInput));
+
+                encryptor.ClearRSAKeyContainer();
+
                 if (input == ans)
                 {
                     pass = true;
